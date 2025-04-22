@@ -25,9 +25,9 @@ document.querySelector('button').addEventListener('click', (event) => {
     const auth = getAuth(app);
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            // Signed up 
             const user = userCredential.user; alert("Account Created Successfuly");
-             window.location.href = './Login/index.html';// ...
+                
+                window.location.href = './User page/index.html';// ...
         })
         .catch((error) => {
             const errorCode = error.code;

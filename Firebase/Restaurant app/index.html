@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Sign Up</title>
     <style>
@@ -12,6 +13,7 @@
             height: 100vh;
             margin: 0;
         }
+
         .signup-container {
             background-color: #fff;
             padding: 20px;
@@ -19,21 +21,25 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             width: 300px;
         }
+
         .signup-container h1 {
             margin-bottom: 20px;
             font-size: 24px;
             text-align: center;
         }
+
         .signup-container form {
             display: flex;
             flex-direction: column;
         }
+
         .signup-container input {
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+
         .signup-container button {
             padding: 10px;
             background-color: #4CAF50;
@@ -42,22 +48,23 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
         .signup-container button:hover {
             background-color: #45a049;
         }
     </style>
 </head>
+
 <body>
     <div class="signup-container">
         <h1>Sign Up</h1>
         <form action="/submit-signup" method="POST">
             <input type="email" name="email" id="email" placeholder="Email" required>
             <input type="password" id="password" name="password" placeholder="Password" required>
-            <button type="submit">Sign Up</button>
+            <button type="submit">Sign Up</button><br>
+            <p>Already have Account?&nbsp;<a href="./Login/index.html">Log in</a></p>
         </form>
     </div>
     <script src="app.js" type="module" defer></script>
 </body>
 </html>
-
-

@@ -25,14 +25,16 @@ document.querySelector('button').addEventListener('click', (event) => {
     const auth = getAuth(app);
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            // Signed up 
-            const user = userCredential.user; alert("Account Created Successfuly");
-             window.location.href = '../admin Panel/index.html';// ...
+            if (!(email == "admin@gmail.com" && password == "1234567")) {
+                
+                window.location.href = '../User page/index.html';// ...
+            } else {
+                window.location.href = '../admin Panel/index.html';
+            }
         })
         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message; alert(errorMessage);
-            // ..
+            let errorMessage = error.message; 
+            alert(errorMessage);
         });
 
 })
