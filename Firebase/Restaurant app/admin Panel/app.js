@@ -1,6 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc, deleteField, updateDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
+import { getAuth,signOut } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
 let showCase = document.getElementById('showItems');
 
 const firebaseConfig = {
@@ -14,7 +16,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
+const auth = getAuth(app);
 
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -24,7 +26,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log('Error occurred:', error);
     }
 });
-
 
 
 document.getElementById('new_Hotel').addEventListener('click', async function () {
@@ -49,24 +50,14 @@ document.getElementById('new_Hotel').addEventListener('click', async function ()
 })
 
 
-
-
-
-
-
 async function deleteItem(e) {
-    // await deleteDoc(doc(db, "users", e));   
-
 
     const cityRef = doc(db, "users", e);
-
     await deleteDoc(cityRef, {
         dish: deleteField(),
         pic: deleteField(),
         price: deleteField()
-
     });
-
     callData();
 }
 window.deleteItem = deleteItem;
@@ -85,8 +76,7 @@ async function updateItem(e) {
         price: price2
     }); callData()
 
-}
-window.updateItem = updateItem;
+}window.updateItem = updateItem;
 
 
 
@@ -96,14 +86,32 @@ async function callData() {
     const querySnapshot = await getDocs(collection(db, "users"));
     querySnapshot.forEach((doc) => {
 
-        showCase.innerHTML += `<div>
-    <img src="" alt=""><h1>${doc.data().dish}</h1><h3>${doc.data().price}</h3><button onclick="deleteItem('${doc.id}')">DELETE</button><br><button onclick="updateItem('${doc.id}')" >EDIT</button><br>
-</div>`
+        showCase.innerHTML +=`<div class="card">
+        <img src="${doc.data().pic}" alt="Dish image">
+        <div class="card-body">
+          <h2>${doc.data().dish}</h2>
+          <p>Price: ${doc.data().price}</p>
+          <div class="card-actions">
+          <button class="btn btn-primary" onclick="updateItem('${doc.id}')">Edit</button>
+          <button class="btn btn-secondary" onclick="deleteItem('${doc.id}')">Delete</button>
+          </div>
+        </div>
+      </div>` 
     });
 }
 
 
-
+document.getElementById('logOut').addEventListener('click',()=>{
+    signOut(auth)
+    .then(() => {
+      console.log('User successfully signed out.');
+      alert("Log Out Successfuly");
+      window.location.href = '../Login/index.html';
+    })
+    .catch(error => {
+      console.log('Error signing out:', error);
+    });
+})
 
 
 

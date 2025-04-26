@@ -1,16 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base resets */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html { font-size: 16px; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7fc;
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+
+        /* Header bar as three-column grid */
+        .header {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            padding: 1rem;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .left-group, .btn-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Center title */
+        .header-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .btn-primary:hover { background-color: #2980b9; }
+
+        .btn-secondary {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        .btn-secondary:hover { background-color: #c0392b; }
+
+        /* Grid container for cards */
+        .grid {
+            display: grid;
+            gap: 1rem;
+            padding: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        }
+
+        /* Card styling */
+        .card {
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card img {
+            width: 100%;
+            object-fit: cover;
+            height: 160px;
+        }
+
+        .card-body {
+            padding: 1rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-body h2 {
+            font-size: 1.25rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-body p {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .card-actions .btn { flex: 1; font-size: 0.875rem; }
+
+        /* Responsive tweaks */
+        @media (max-width: 600px) {
+            .header-title { font-size: 1.25rem; }
+            .btn { padding: 0.5rem; font-size: 0.875rem; }
+        }
+    </style>
 </head>
+
 <body>
+    <header class="header">
+        <div class="left-group">
+            <button id="newAdmin" class="btn btn-primary">New Admin</button>
+        </div>
+        <h1 class="header-title">Admin Panel</h1>
+        <div class="btn-group">
+            <button id="new_Hotel" class="btn btn-primary">New Hotel</button>
+            <button id="logOut" class="btn btn-secondary">Log Out</button>
+        </div>
+    </header>
 
-    <button id="new_Hotel">New Hotel</button>
+    <main class="grid" id="showItems">
+        <!-- Cards injected here -->
+    </main>
 
-<div id="showItems"></div>
-<script type="module" src="app.js" defer></script>
+    <script type="module" src="app.js" defer></script>
 </body>
-</html>
 
+</html>

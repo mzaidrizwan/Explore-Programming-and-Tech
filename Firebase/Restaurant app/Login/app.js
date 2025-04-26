@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
 
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
 
 const firebaseConfig = {
@@ -26,15 +26,29 @@ document.querySelector('button').addEventListener('click', (event) => {
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             if (!(email == "admin@gmail.com" && password == "1234567")) {
-                
+
                 window.location.href = '../User page/index.html';// ...
             } else {
                 window.location.href = '../admin Panel/index.html';
             }
         })
         .catch((error) => {
-            let errorMessage = error.message; 
+            let errorMessage = error.message;
             alert(errorMessage);
         });
 
+})
+
+
+const auth = getAuth(app);
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        const uid = user.id;
+        console.log("User is signed in");
+
+        location.href = '../admin Panel/index.html';
+    }
+    else {
+        console.log("Not loged in");
+    }
 })
