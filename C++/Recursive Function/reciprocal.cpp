@@ -1,20 +1,21 @@
 #include <iostream>
 using namespace std;
 
-double sumTo(int n) ;
+float sum(float num);
 
 int main() {
-    int n;
-    cout << "Enter a non-negative integer: ";
-    cin >> n;
-    
-    cout << "The sum of the first " << n << " reciprocals is: " << sumTo(n) << endl;
-    
-    return 0;
+	float num = 5.0;
+	float result = sum(num);
+	cout <<result;
 }
 
-double sumTo(int n) {
-    if (n == 0)
-        return 0;           
-    return sumTo(n - 1) + 1.0 / n;
+float sum(float num) {
+
+	if(num == 1.0) {
+		return 1.0;
+	}
+	else {
+		return sum(num-1) + (1/num);
+	}
+
 }
