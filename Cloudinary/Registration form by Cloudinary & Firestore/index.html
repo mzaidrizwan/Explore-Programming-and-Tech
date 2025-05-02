@@ -94,7 +94,6 @@
           <h2 class="text-center text-primary mb-4">Registration Form</h2>
           <div class="divider"></div>
           <div class="row g-3">
-            <!-- form fields unchanged -->
             <div class="col-12 col-md-6">
               <label for="country" class="form-label">Select country</label>
               <select class="form-select" name="country" id="country">
@@ -211,7 +210,6 @@
 
   <script src="app.js" type="module"></script>
   <script>
-    // Toggle between forms
     const regForm = document.getElementById('regForm');
     const searchForm = document.getElementById('searchForm');
     document.getElementById('btnSearchCNIC').addEventListener('click', () => {
@@ -221,7 +219,6 @@
       searchForm.style.display = 'none'; regForm.style.display = 'block';
     });
 
-    // Image preview logic
     document.getElementById('picture')?.addEventListener('change', function (e) {
       const img = document.getElementById('preview');
       const file = e.target.files[0];
