@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    char text[97];
+    char text[97] = "hi How Are You";
     char *str = text;
     int count = 0;
 
