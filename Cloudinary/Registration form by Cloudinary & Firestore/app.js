@@ -1,16 +1,16 @@
-import { initializeApp } from "";
+import { initializeApp } from ""; //=== Paste from Firebase === 
 import {
     getFirestore,
     collection,
     addDoc, getDocs
-} from "";
+} from "";//=== Paste from Firebase ===
 
 const firebaseConfig = {
-    
+    //=== Paste from Firebase ===
 };
 
-const CLOUD_NAME = "";
-const UPLOAD_PRESET = "";
+const CLOUD_NAME = "";//=== Paste from Cloudinary ===
+const UPLOAD_PRESET = "";//=== Paste from Cloudinary ===
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
