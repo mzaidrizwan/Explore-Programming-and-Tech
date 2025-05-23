@@ -1,5 +1,4 @@
 import RecipeReviewCard from './assets/Post'; 
-import React from 'react';
 import { Container, Box } from '@mui/material'; 
 import { red } from '@mui/material/colors'; 
 
