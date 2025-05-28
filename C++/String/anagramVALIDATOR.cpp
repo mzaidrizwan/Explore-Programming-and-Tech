@@ -3,41 +3,41 @@
 using namespace std;
 int main()
 {
-    string inp1 = "aac";
-    string inp2 = "aca";
-    bool valid = true;
+    string inp1 = "election results";
+    string inp2 = "lies lets recount";
+    bool yes = true;
 
-    for (size_t i = 0; (inp1[i] ? true : false); i++)
+
+
+
+    for (size_t i = 0; inp1[i] ? true : false; i++)
     {
-        int a = 0;
-        int b = 0;
+        bool valid = false;
 
-        for (size_t k = 0; inp2[k] ? true : false; k++)
+        for (size_t k = 0; inp1[k] ? true : false; k++)
         {
-            if (inp1[i] == inp2[k])
+            // cout << " 2 " << inp2[k] << endl<< " 1 "<<inp1[i];
+            if (inp2[k] != '-' && inp1[i] == inp2[k])
             {
-                ++b;
-            }
-        }
-        char charact = inp1[i];
-        for (size_t k = i; inp2[k] ? true : false; k++)
-        {
-
-            if (charact == inp1[k] && charact != '-')
-            {
-                ++a;
-                inp1[i] = '-';
+                valid = true;
+                inp2[k] = '-';
+                break;
             }
         }
 
-        // if (a != b)
-        // {
-        //     valid = false;
-        //     break;
-        // }
-        cout << " a "<<a <<" b "<<b<<endl;
+        if (!valid)
+        {
+            cout << "\nNot valid :-(";
+            yes = false;
+            break;
+        }
     }
-// (valid ? "Yes" : "No")
+
+    // (valid ? "Yes" : "No")
+    if (yes)
+    {
+        cout << "\nvalid :-)";
+    }
 
     return 0;
 }
