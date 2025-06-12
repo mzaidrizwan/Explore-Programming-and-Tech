@@ -1,16 +1,13 @@
-export default function Bike() {
-    let bikes = ["kawasaki", "Honda"];
+export default function Bike(arr) {
+    let bikes = arr.bikes;
     let amount;
 
-    if (bikes.length() < 4) {
-        amount = "Insufficient";
-    } else {
-        amount = "Sufficient";
-    }
+    
 
     return (
         <div>
-            <p>Motorcycles in showroom are {amount} for exhibition.</p>
+            <p>Motorcycles in showroom are {(false?bikes[1]:bikes[0])} for exhibition.</p>
         </div>
     )
 }
+

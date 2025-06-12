@@ -1,4 +1,3 @@
-import React from 'react'
 import './App.css'
 import Bike from './Components/Bike'
 
@@ -6,7 +5,8 @@ function App() {
 
   return (
     <>
-      <Bike />
+      <Bike bikes ={["honda","kawasaki"]}/>
+      <Bike bikes ={["Suzuki","harley davitson"]}/>
     </>
   )
 }
