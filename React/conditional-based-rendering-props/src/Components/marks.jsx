@@ -1,13 +1,13 @@
-function marksTOgradeCONVERT(e) {
-    if (e >= 90) {
+function marksTOgradeCONVERT(score) {
+    if (score >= 90) {
         return "A+";
-    } else if(e >= 80){
+    } else if(score >= 80){
         return "A";
-    }else if(e >= 70){
+    }else if(score >= 70){
         return "B";
-    }else if(e >= 60){
+    }else if(score >= 60){
         return "C";
-    }else if(e >= 50){
+    }else if(score >= 50){
         return "D";
     }else{
         return "F";
@@ -32,4 +32,4 @@ const Marks = (props) => {
     )
 }
 
-export default Marks
+export default Marks;
