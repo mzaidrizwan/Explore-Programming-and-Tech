@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Server {
     public static void main(String[] args) {
         try {
-
             Scanner scanner = new Scanner(System.in);
             ServerSocket serverSocket = new ServerSocket(9090);
             System.out.println("Status : ON");
@@ -16,7 +15,7 @@ public class Server {
 
             while (true) {
                 String recieveMessage = bufferedReader.readLine();
-                if (recieveMessage.trim().equals("off")) {
+                if (recieveMessage.trim().equalsIgnoreCase("off")) {
                     System.out.println("SHUTDOWN COMMAND RECIVED");
                     break;
                 } else {

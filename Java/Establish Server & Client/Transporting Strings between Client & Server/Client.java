@@ -16,12 +16,11 @@ public class Client {
 
             while (true) {
                 String takeInputFromKeyboard;
-                
                 System.out.print("You: ");
                 takeInputFromKeyboard = scanner.nextLine();
                 out.println(takeInputFromKeyboard);
 
-                if (takeInputFromKeyboard.trim().equals("off")) {
+                if (takeInputFromKeyboard.trim().equalsIgnoreCase("off")) {
                     System.out.println("SHUTDOWN COMMAND RECIVED");
                     break;
                 }
