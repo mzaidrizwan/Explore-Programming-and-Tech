@@ -1,10 +1,10 @@
 import products from "./Data";
 
-let topThree = products.slice(products.length - 3);
+products.sort((a,b)=> b.price - a.price);
+let topThree = products.slice(0, 3);
 
 export default function TopTHREE_most_expensive() {
     
-  {topThree.sort((a,b)=> b.price - a.price);}
 
     return (<>
         <h1>Top 3 most expensive products</h1>
