@@ -1,4 +1,4 @@
-public class private {
+public class privatE_ {
     public static void main(String[] args) {
         class1 z = new class1();
 
