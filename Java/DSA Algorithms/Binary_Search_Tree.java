@@ -26,7 +26,7 @@ public class Binary_Search_Tree {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<data_manager> data_container = new ArrayList<>();
-        int index = 0, head_node = -3, left_node = -3, right_node = -3;
+        int index = 0, head_node = -2, left_node = -1, right_node = -1;
 
         while (true) {
             System.out.print("Enter to Add New Data: ");
@@ -35,24 +35,38 @@ public class Binary_Search_Tree {
             if (input.equalsIgnoreCase("off")) {
                 break;
             }
-            
+
             int value = Integer.parseInt(input);
             int focused_index_of_saved_data = 0;
-         
+
             if (data_container.isEmpty()) {
-                data_container.add(new data_manager(index++, value, -2, -1, -1));
+                data_container.add(new data_manager(index++, value, head_node,left_node,right_node));
+                System.out.println("Saved successfuly" + '\n' + "Value " + value + '\n' + " Index  " + (index - 1)
+                        + '\n'
+                        + " Head Node: " + head_node + '\n' + " Left Node: " + left_node + '\n' + " Right Node: "
+                        + right_node);
+                continue;
             }
-         
-         
+
             while (true) {
-                
-                data_manager saved_data = data_container.get(focused_index_of_saved_data++);
+
+                data_manager saved_data = data_container.get(focused_index_of_saved_data);
 
                 if (value > saved_data.value && saved_data.right_node < 0) {
                     saved_data.right_node = index;
+                    head_node = focused_index_of_saved_data ;
                     break;
-                }else if (value < saved_data.value && saved_data.left_node < 0) {
+                } else if (value < saved_data.value && saved_data.left_node < 0) {
                     saved_data.left_node = index;
+                    head_node = focused_index_of_saved_data ;
+                    break;
+                } else if (value < saved_data.value && saved_data.left_node >= 0) {
+                    focused_index_of_saved_data = saved_data.left_node;
+                    // head_node = focused_index_of_saved_data ;
+                    break;
+                } else if (value > saved_data.value && saved_data.right_node >= 0) {
+                    focused_index_of_saved_data = saved_data.right_node;
+                    // head_node = focused_index_of_saved_data ;
                     break;
                 }
 
@@ -61,7 +75,9 @@ public class Binary_Search_Tree {
             data_container.add(new data_manager(index++, value, head_node, left_node,
                     right_node));
 
-            System.out.println("Value "+value+" is saved successfuly with Index "+(index-1));
+            System.out.println("Saved successfuly" + '\n' + "Value " + value + '\n' + " Index  " + (index - 1) + '\n'
+                    + " Head Node: " + head_node + '\n' + " Left Node: " + left_node + '\n' + " Right Node: "
+                    + right_node);
         }
 
         // list.add(new data_manager(0, "value1", 1));
