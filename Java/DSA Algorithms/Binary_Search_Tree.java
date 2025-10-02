@@ -29,7 +29,7 @@ public class Binary_Search_Tree {
         int index = 0, head_node = -2, left_node = -1, right_node = -1;
 
         while (true) {
-            System.out.print("Enter to Add New Data: ");
+            System.out.print("Enter Numbers to Add,Type OFF to end Data Entry: ");
             String input = scanner.nextLine();
 
             if (input.equalsIgnoreCase("off")) {
@@ -62,12 +62,8 @@ public class Binary_Search_Tree {
                     break;
                 } else if (value < saved_data.value && saved_data.left_node >= 0) {
                     focused_index_of_saved_data = saved_data.left_node;
-                    // head_node = focused_index_of_saved_data ;
-                    break;
                 } else if (value > saved_data.value && saved_data.right_node >= 0) {
                     focused_index_of_saved_data = saved_data.right_node;
-                    // head_node = focused_index_of_saved_data ;
-                    break;
                 }
 
             }
