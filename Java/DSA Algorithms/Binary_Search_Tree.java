@@ -24,15 +24,22 @@ class data_manager {
 
 public class Binary_Search_Tree {
     public static void main(String[] args) {
+        add_New_data();
+    }
+
+    static ArrayList<data_manager> data_container;
+
+    static void add_New_data() {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<data_manager> data_container = new ArrayList<>();
+        data_container = new ArrayList<>();
         int index = 0, head_node = -2, left_node = -1, right_node = -1;
 
         while (true) {
-            System.out.print("Enter Numbers to Add,Type OFF to end Data Entry: ");
+            System.out.print("Enter Numbers to Add in Binary-Tree,enter OFF to end Data Entry: ");
             String input = scanner.nextLine();
 
             if (input.equalsIgnoreCase("off")) {
+                print_leaf();
                 break;
             }
 
@@ -40,7 +47,7 @@ public class Binary_Search_Tree {
             int focused_index_of_saved_data = 0;
 
             if (data_container.isEmpty()) {
-                data_container.add(new data_manager(index++, value, head_node,left_node,right_node));
+                data_container.add(new data_manager(index++, value, head_node, left_node, right_node));
                 System.out.println("Saved successfuly" + '\n' + "Value " + value + '\n' + " Index  " + (index - 1)
                         + '\n'
                         + " Head Node: " + head_node + '\n' + " Left Node: " + left_node + '\n' + " Right Node: "
@@ -54,11 +61,11 @@ public class Binary_Search_Tree {
 
                 if (value > saved_data.value && saved_data.right_node < 0) {
                     saved_data.right_node = index;
-                    head_node = focused_index_of_saved_data ;
+                    head_node = focused_index_of_saved_data;
                     break;
                 } else if (value < saved_data.value && saved_data.left_node < 0) {
                     saved_data.left_node = index;
-                    head_node = focused_index_of_saved_data ;
+                    head_node = focused_index_of_saved_data;
                     break;
                 } else if (value < saved_data.value && saved_data.left_node >= 0) {
                     focused_index_of_saved_data = saved_data.left_node;
@@ -70,24 +77,71 @@ public class Binary_Search_Tree {
 
             data_container.add(new data_manager(index++, value, head_node, left_node,
                     right_node));
-
             System.out.println("Saved successfuly" + '\n' + "Value " + value + '\n' + " Index  " + (index - 1) + '\n'
                     + " Head Node: " + head_node + '\n' + " Left Node: " + left_node + '\n' + " Right Node: "
                     + right_node);
         }
-
-        // list.add(new data_manager(0, "value1", 1));
-        // list.add(new data_manager(1, "value2", 2));
-
-        // data_manager takeToEdit = list.get(1);
-        // takeToEdit.index = 3;
-        // takeToEdit.value = "new value";
-        // System.out.println("Modified Data:");
-        // for (data_manager i : list) {
-        // System.out.println(i);
-        // The operator > is undefined for the argument type(s) String, int
-        // }
         scanner.close();
     }
 
+    static void print_leaf() {
+        boolean found = false;
+        System.out.println("All Leaf Nodes in Given Data:");
+        for (int i = 0; i < data_container.size(); i++) {
+            data_manager saved_data = data_container.get(i);
+            if (saved_data.left_node == -1 && saved_data.right_node == -1) {
+                System.out.println(saved_data.value);
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("No Leaf Node Found.");
+        }
+        search_value_and_tell_its_position();
+    }
+
+    static void search_value_and_tell_its_position() {
+        System.out.print("Please Enter the Value You want to search in Binary-Tree: ");
+        Scanner scanner = new Scanner(System.in);
+        int value_to_search_in_tree = scanner.nextInt();
+        boolean found = false;
+
+        for (int i = 0; i < data_container.size(); i++) {
+            data_manager saved_data = data_container.get(i);
+            if (saved_data.value == value_to_search_in_tree) {
+                System.out.println("Value " + value_to_search_in_tree + "is Found with Index " + saved_data.index);
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Value Not Found.");
+        }
+        search_value_and_tell_its_headNode_ChildNode();
+    }
+
+    static void search_value_and_tell_its_headNode_ChildNode() {
+        System.out.print("Please Enter the Value to Find its Parent & Child Nodes: ");
+        Scanner scanner = new Scanner(System.in);
+        int value_to_search_in_tree = scanner.nextInt();
+        boolean found = false;
+
+        for (int i = 0; i < data_container.size(); i++) {
+            data_manager saved_data = data_container.get(i);
+            if (saved_data.value == value_to_search_in_tree) {
+                System.out.println("Value " + value_to_search_in_tree + "is Found with Parent Node "
+                        + saved_data.head_node + " and Left Child Node " + saved_data.left_node
+                        + " and Right Child Node " + saved_data.right_node);
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Value Not Found.");
+        }
+        print_inOrderTraversal();
+    }
+
+    static void print_inOrderTraversal() {
+
+    }
 }
