@@ -142,6 +142,28 @@ public class Binary_Search_Tree {
     }
 
     static void print_inOrderTraversal() {
+        int current_processing_position = 0;
 
+        data_manager saved_data = data_container.get(current_processing_position);
+
+        inOrder(saved_data);
+    }
+
+    static void inOrder(data_manager node) {
+        if (node == null) {
+            return;
+        }
+
+        if (node.left_node != -1) {
+            data_manager left_data = data_container.get(node.left_node);
+            inOrder(left_data);
+        }
+
+        System.out.print(node.value + " ");
+
+        if (node.right_node != -1) {
+            data_manager right_data = data_container.get(node.right_node);
+            inOrder(right_data);
+        }
     }
 }
