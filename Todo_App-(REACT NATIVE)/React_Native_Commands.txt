@@ -1,0 +1,23 @@
+starting new project:
+npx create-expo-app YourAppName
+
+starting server to run locally on web/mobile:
+npx expo start
+
+to reset the project:
+npm run reset-project
+
+to install asyn storage:
+ npm i @react-native-async-storage/async-storage
+
+to start convex server and sync the code to it:
+npx convex dev
+
+to have a basic template of code which exports:
+type "rnfe" and the extension will give the suggestion
+
+React Native suggestions helper extension:
+search es7 and pick the first one
+
+learning Resource:
+https://www.youtube.com/watch?v=jdfNnNccDt0
