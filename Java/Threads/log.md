@@ -27,3 +27,20 @@ task 4  name=worker-1  id=27  virtual=false
 task 4  name=worker-3  id=29  virtual=false
 
 started from 0, name=worker-0, as c.value++ the name=worker-1,2,...,n. After giving name to last thread it became c.value=4 which is reflected at repeated "task 4" in each row.
+
+
+
+
+
+
+==============================[task-2]==========================
+OUTPUT :-
+Worker 2 finished: local = 2000000
+Worker 1 finished: local = 2000000
+Worker 0 finished: local = 2000000
+Worker 3 finished: local = 2000000
+Expected shared = 8000000 Actual shared = 5082147
+
+OBSERVATIONS:-
+1) 'local' variable created inside 'Worker' class, each 'local' variable is private to it's Thread in Multi Threaded operation. No other thread can change 'local' variable.
+2) 'shared' variable was open to all the program i.e all the Threads, every Thread can change 'shared' variable, as 'shared++' is actually 3 statements (READ, UPDATE, WRITE) because of more then one Thread can possibly read same data of 'shared' variable & write the same updated value, this leads to decrease of productive operation, resulting the final value less than expected value.
