@@ -2,8 +2,6 @@
 
 // ---------------------------task-1 , complete the skeleton---------------------------
 
-import org.w3c.dom.css.Counter;
-
 public class Task1 {
     static final int N = 4;
 
