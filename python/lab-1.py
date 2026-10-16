@@ -226,17 +226,77 @@ lst.clear()
 # student_tuple = ("Math", "Science", "English")
 # print(f"List Example: {student_list}")
 # print(f"Tuple Example:{student_tuple} ")
-allStudents=[]
-while 1:
-    std ={'name':"",'age':''}
-    inp_nam= input("enter name, type 1 to stop: ")
+# allStudents=[]
+# while 1:
+#     std ={'name':"",'age':''}
+#     inp_nam= input("enter name, type 1 to stop: ")
    
-    if inp_nam =='1':
-        break
+#     if inp_nam =='1':
+#         break
 
-    inp_age=int(input("age: "))
-    std["name"]= inp_nam
-    std["age"]=inp_age
-    print(f" student {std['name']} of age {std['age']} admitted\n")
-    allStudents.append(std)
-    print(f"available students {allStudents}")
+#     inp_age=int(input("age: "))
+#     std["name"]= inp_nam
+#     std["age"]=inp_age
+#     print(f" student {std['name']} of age {std['age']} admitted\n")
+#     allStudents.append(std)
+#     print(f"available students {allStudents}")
+
+
+
+#  input /output Basic operations
+# (i)Write a Python program to swap 4 variables values
+# a=int(input("\ninsert value of a : "))
+# b=int(input("\ninsert value of b : "))
+# c=int(input("\ninsert value of c : "))
+# d=int(input("\ninsert value of d : "))
+
+# a=a+d
+# d=a-d
+# a=a-d
+
+# b=c+b
+# c=b-c
+# b=b-c
+
+# print(f"a={a}, b={b}, c={c}, d={d}")
+
+
+# (ii) Write a Python program to convert temperatures to and from celsius, Fahrenheit
+# fahrenheit=int(input("\ninsert value of fahrenheit : "))
+
+# celcius = (fahrenheit-32)*5/9
+# print(f"in celcius: {celcius}")
+
+# celcius=int(input("\ninsert value of celcius : "))
+# fahrenheit = (celcius *9/5)+32
+# print(f" in fahrenheit: {fahrenheit}")
+
+
+# list functions
+# 1) __init__
+
+# class created
+# class Student:
+#     def __init__(self,name):
+#         self.name=name
+# s = Student("chacha")
+# print(s.name)
+
+# 2) __str__
+# class Student:
+#     def __str__(self):
+#         return "chacha"
+
+# print(Student())
+
+# 3) __len__
+# class Bag:
+#     def __len__(self):
+#         return 5
+# print(len(Bag()))
+
+# contatenate dict
+dict1={'a':1,'b':2}
+dict2={'c':3,'d':4}
+dict3= dict1|dict2
+print(f" combined dict: {dict3}")
