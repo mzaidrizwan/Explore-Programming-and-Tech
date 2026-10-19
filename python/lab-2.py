@@ -27,4 +27,13 @@
 #     print(c)
 #     print()
 
-for i=0 
+#Create a loop that counts all even numbers to 10
+# for even in range(1,11):
+#     if not even % 2:
+#         print(f"{even }\n")
+
+# Create a loop that sums the numbers from 100 to 200
+# n=0
+# for num in range(100,201):
+#     n+=num
+# print(n)
