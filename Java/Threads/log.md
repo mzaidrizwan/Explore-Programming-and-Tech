@@ -44,3 +44,19 @@ Expected shared = 8000000 Actual shared = 5082147
 OBSERVATIONS:-
 1) 'local' variable created inside 'Worker' class, each 'local' variable is private to it's Thread in Multi Threaded operation. No other thread can change 'local' variable.
 2) 'shared' variable was open to all the program i.e all the Threads, every Thread can change 'shared' variable, as 'shared++' is actually 3 statements (READ, UPDATE, WRITE) because of more then one Thread can possibly read same data of 'shared' variable & write the same updated value, this leads to decrease of productive operation, resulting the final value less than expected value.
+
+
+
+==============================[task-3]==========================
+OUTPUT:-
+4 tasks created
+threads: 4
+
+expected sum result: 1.0E7
+
+actual sum result: 1.0E7
+
+time taken: 45.0014
+
+OBSERVATIONS:-
+1) each thread got a task to sum up given numbers, all threads didn't share memory & worked independently, work of each thread was private, resulted sum is equal to expected sum means no race condition.
