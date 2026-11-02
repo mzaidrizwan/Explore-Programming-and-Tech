@@ -22,11 +22,11 @@ public class Task4 {
 
          ExecutorService exec;
         if (mode.equals("platform")) {
-            exec=Executors.newThreadPerTaskExecutor(Thread.ofPlatform().factory());
+            exec=Executors.newThreadPerTaskExecutor(Thread.ofPlatform().factory());// will create OS threads
         }else
             exec = Executors.newVirtualThreadPerTaskExecutor();
         
-        System.out.printf("running %d tasks using %s threads...%n",count,mode);
+        System.out.printf("running %d tasks using %s threads...%n",count,mode);//will create virtual threads
 
         long start=System.nanoTime();//start timing
 
@@ -37,7 +37,7 @@ public class Task4 {
             }
         }
 
-        long end = System.nanoTime();
+        long end = System.nanoTime();// end time
         double elapsedSec = (end-start) / 1_000_000_000.0;
 
         System.out.printf("finished %d tasks in %.2f seconds.%n",count,elapsedSec);
