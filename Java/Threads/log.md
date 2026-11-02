@@ -47,7 +47,7 @@ OBSERVATIONS:-
 
 
 
-==============================[task-3]==========================
+==============================[task-3]====================================================
 OUTPUT:-
 4 tasks created
 threads: 4
@@ -60,3 +60,26 @@ time taken: 45.0014
 
 OBSERVATIONS:-
 1) each thread got a task to sum up given numbers, all threads didn't share memory & worked independently, work of each thread was private, resulted sum is equal to expected sum means no race condition.
+
+
+==============================[task-4]===============================================
+OUTPUT:-
+PS C:\Java\Threads> java Task4.java platform 10000
+running 10000 tasks using platform threads...
+finished 10000 tasks in 3.51 seconds.
+
+
+PS C:\Java\Threads> java Task4.java virtual 10000
+running 10000 tasks using virtual threads...
+finished 10000 tasks in 1.13 seconds.
+
+
+PS C:\Java\Threads> java Task4.java virtual 1000000
+running 1000000 tasks using virtual threads...
+finished 1000000 tasks in 10.02 seconds.
+
+
+OBSERVATION:-
+*) 1 second is sleep duration
+platform is representing OS threads, execution is relatively consuming more time.
+virtual is Virtual Threads which are faster than OS threads.
